@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import clsx from "clsx";
 
 import { Providers } from "./providers";
 
@@ -34,10 +33,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
+        className={`min-h-screen bg-background font-sans antialiased ${fontSans.variable}`}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           {children}

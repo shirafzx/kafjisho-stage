@@ -18,12 +18,13 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@heroui/navbar";
-import { Popover, PopoverTrigger, PopoverContent } from "@heroui/popover";
 import { Icon } from "@iconify/react";
 import { Avatar } from "@heroui/avatar";
+import { Divider } from "@heroui/divider";
 
 import { AcmeIcon } from "@/components/navigation/navbar/Acme";
-import NotificationsCard from "@/components/navigation/navbar/NotificationsCard";
+import ThemeSwitcher from "@/components/navigation/navbar/ThemeSwitcher";
+import { navigationLink } from "@/constants";
 
 const Navbar = () => {
   return (
@@ -39,15 +40,18 @@ const Navbar = () => {
         <p className="font-bold text-inherit">KAFJisho</p>
       </NavbarBrand>
       <NavbarContent
-        className="ml-4 hidden h-12 w-full max-w-fit gap-4 rounded-full px-4 sm:flex"
+        className="ml-4 hidden h-12 w-full max-w-fit gap-4 px-4 sm:flex"
         justify="start"
       >
-        <NavbarItem>
-          <Link className="flex gap-2 text-inherit" href="#">
-            Dashboard
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
+        {navigationLink.map((item) => (
+          <NavbarItem key={item.route}>
+            <Link className="flex gap-2 text-inherit" href={item.route}>
+              {item.label}
+            </Link>
+          </NavbarItem>
+        ))}
+
+        {/* <NavbarItem isActive>
           <Link
             aria-current="page"
             className="flex gap-2 text-inherit"
@@ -55,23 +59,9 @@ const Navbar = () => {
           >
             Deployments
           </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="flex gap-2 text-inherit" href="#">
-            Analytics
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="flex gap-2 text-inherit" href="#">
-            Team
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="flex gap-2 text-inherit" href="#">
-            Settings
-          </Link>
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
+      <Divider className="h-7 hidden lg:flex" orientation="vertical" />
       <NavbarContent
         className="ml-auto flex h-12 max-w-fit items-center gap-0 rounded-full p-0  lg:px-1 "
         justify="end"
@@ -85,14 +75,8 @@ const Navbar = () => {
             />
           </Button>
         </NavbarItem>
-        <NavbarItem className="hidden sm:flex">
-          <Button isIconOnly radius="full" variant="light">
-            <Icon
-              className="text-default-500"
-              icon="solar:sun-linear"
-              width={24}
-            />
-          </Button>
+        <NavbarItem>
+          <ThemeSwitcher />
         </NavbarItem>
         <NavbarItem className="hidden sm:flex">
           <Button isIconOnly radius="full" variant="light">
@@ -102,30 +86,6 @@ const Navbar = () => {
               width={24}
             />
           </Button>
-        </NavbarItem>
-        <NavbarItem className="flex">
-          <Popover offset={12} placement="bottom-end">
-            <PopoverTrigger>
-              <Button
-                disableRipple
-                isIconOnly
-                className="overflow-visible"
-                radius="full"
-                variant="light"
-              >
-                <Badge color="danger" content="5" showOutline={false} size="md">
-                  <Icon
-                    className="text-default-500"
-                    icon="solar:bell-linear"
-                    width={22}
-                  />
-                </Badge>
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="max-w-[90vw] p-0 sm:max-w-[380px]">
-              <NotificationsCard className="w-full shadow-none" />
-            </PopoverContent>
-          </Popover>
         </NavbarItem>
         <NavbarItem className="px-2">
           <Dropdown placement="bottom-end">

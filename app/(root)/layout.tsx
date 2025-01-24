@@ -4,9 +4,9 @@ import Navbar from "@/components/navigation/navbar";
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative flex flex-col h-screen">
+    <div className="relative">
       <Navbar />
-      <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+      <main className="container mx-auto max-w-7xl px-6 flex-grow">
         {children}
       </main>
     </div>
