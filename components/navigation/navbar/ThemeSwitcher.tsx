@@ -1,11 +1,20 @@
 import { Button } from "@heroui/button";
 import { Icon } from "@iconify/react";
 import { useTheme } from "next-themes";
+import { flushSync } from "react-dom";
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
-  const onChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+  const onChange = async () => {
+    await document.startViewTransition(() => {
+      flushSync(() => {
+        theme === "light" ? setTheme("dark") : setTheme("light");
+      });
+    }).ready;
+    document.documentElement.animate({
+      easing: "ease-in-out",
+      pseudoElement: "::view-transition-new(root)",
+    });
   };
   const icon = theme === "dark" ? "solar:sun-linear" : "solar:moon-linear";
 

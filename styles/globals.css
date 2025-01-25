@@ -6,3 +6,39 @@
   font-family: var(--font-line-seed-en), var(--font-line-seed-th),
     var(--font-line-seed-jp), sans-serif;
 }
+
+:root {
+  --switch-duration: 2s;
+}
+
+::view-transition-old(root) {
+  animation: scale var(--switch-duration);
+}
+
+::view-transition-new(root) {
+  -webkit-mask: url(/gestalt.webp) center / 0 no-repeat;
+  mask: url(/gestalt.webp) center / 0 no-repeat;
+  animation: scale var(--switch-duration);
+}
+
+@keyframes scale {
+  0% {
+    -webkit-mask-size: 0;
+    mask-size: 0;
+  }
+
+  10% {
+    -webkit-mask-size: 30vmax;
+    mask-size: 30vmax;
+  }
+
+  90% {
+    -webkit-mask-size: 30vmax;
+    mask-size: 30vmax;
+  }
+
+  to {
+    -webkit-mask-size: 1000vmax;
+    mask-size: 1000vmax;
+  }
+}
