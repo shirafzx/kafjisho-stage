@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: var(--font-line-seed-en), var(--font-line-seed-th),
+    var(--font-line-seed-jp), sans-serif;
+}
