@@ -4,7 +4,7 @@ import { Metadata, Viewport } from "next";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
-import { lineSeedEN, lineSeedJP, lineSeedTH } from "@/config/fonts";
+import { inter, notoSansThai, notoSerifJP } from "@/config/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body
-        className={`min-h-screen bg-background font-sans antialiased ${lineSeedEN.variable} ${lineSeedTH.variable} ${lineSeedJP.variable}`}
+        className={`min-h-screen bg-background font-sans antialiased ${inter.variable} ${notoSansThai.variable} ${notoSerifJP.variable}`}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           {children}

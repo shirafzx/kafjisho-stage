@@ -10,9 +10,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "line-seed-en": ["var(--font-line-seed-en)"],
-        "line-seed-th": ["var(--font-line-seed-th)"],
-        "line-seed-jp": ["var(--font-line-seed-jp)"],
+        inter: ["var(--font-inter)"],
+        notoSerifThai: ["var(--font-notoSerifThai)"],
+        notoSerifJP: ["var(--font-notoSerifJP)"],
       },
     },
   },

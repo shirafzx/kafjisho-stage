@@ -1,55 +1,16 @@
-import localFont from "next/font/local";
+import { Inter, Noto_Sans_Thai, Noto_Serif_JP } from "next/font/google";
 
-export const lineSeedEN = localFont({
-  src: [
-    {
-      path: "./fonts/EN/LINESeedSans_W_Th.woff2",
-      weight: "100 300",
-    },
-    {
-      path: "./fonts/EN/LINESeedSans_W_Rg.woff2",
-      weight: "400 500",
-    },
-    {
-      path: "./fonts/EN/LINESeedSans_W_Bd.woff2",
-      weight: "600 700",
-    },
-  ],
-  variable: "--font-line-seed-en",
+export const inter = Inter({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
 });
 
-export const lineSeedTH = localFont({
-  src: [
-    {
-      path: "./fonts/TH/LINESeedSansTH_W_Th.woff2",
-      weight: "100 300",
-    },
-    {
-      path: "./fonts/TH/LINESeedSansTH_W_Rg.woff2",
-      weight: "400 500",
-    },
-    {
-      path: "./fonts/TH/LINESeedSansTH_W_Bd.woff2",
-      weight: "600 700",
-    },
-  ],
-  variable: "--font-line-seed-th",
+export const notoSansThai = Noto_Sans_Thai({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-notoSerifThai",
 });
 
-export const lineSeedJP = localFont({
-  src: [
-    {
-      path: "./fonts/JP/LINESeedJP_W_Th.woff2",
-      weight: "100 300",
-    },
-    {
-      path: "./fonts/JP/LINESeedJP_W_Rg.woff2",
-      weight: "400 500",
-    },
-    {
-      path: "./fonts/JP/LINESeedJP_W_Bd.woff2",
-      weight: "600 700",
-    },
-  ],
-  variable: "--font-line-seed-jp",
+export const notoSerifJP = Noto_Serif_JP({
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-notoSerifJP",
 });
