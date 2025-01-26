@@ -19,7 +19,13 @@ const ThemeSwitcher = () => {
   const icon = theme === "dark" ? "solar:sun-linear" : "solar:moon-linear";
 
   return (
-    <Button isIconOnly radius="full" variant="light" onPress={onChange}>
+    <Button
+      isIconOnly
+      aria-label="ThemeSwitcher"
+      radius="full"
+      variant="light"
+      onPress={onChange}
+    >
       <Icon className="text-default-500" icon={icon} width={24} />
     </Button>
   );

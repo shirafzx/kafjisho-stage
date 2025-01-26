@@ -66,7 +66,7 @@ const Navbar = () => {
         justify="end"
       >
         <NavbarItem>
-          <Button isIconOnly radius="full" variant="light">
+          <Button isIconOnly aria-label="Search" radius="full" variant="light">
             <Icon
               className="text-default-500"
               icon="solar:magnifer-linear"
