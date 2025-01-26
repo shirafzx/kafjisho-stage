@@ -22,7 +22,6 @@ import { Icon } from "@iconify/react";
 import { Avatar } from "@heroui/avatar";
 import { Divider } from "@heroui/divider";
 
-import { AcmeIcon } from "@/components/navigation/navbar/Acme";
 import ThemeSwitcher from "@/components/navigation/navbar/ThemeSwitcher";
 import { navigationLink } from "@/constants";
 
@@ -36,11 +35,11 @@ const Navbar = () => {
       }}
     >
       <NavbarBrand>
-        <AcmeIcon />
+        <Icon fontSize={32} icon="mdi:jellyfish" />
         <p className="font-bold text-inherit">KAFJisho</p>
       </NavbarBrand>
       <NavbarContent
-        className="ml-4 hidden h-12 w-full max-w-fit gap-4 px-4 sm:flex"
+        className="ml-4 hidden h-12 w-full max-w-fit gap-4 px-4 md:flex"
         justify="start"
       >
         {navigationLink.map((item) => (
@@ -61,12 +60,12 @@ const Navbar = () => {
           </Link>
         </NavbarItem> */}
       </NavbarContent>
-      <Divider className="h-7 hidden lg:flex" orientation="vertical" />
+      <Divider className="h-7 hidden md:flex" orientation="vertical" />
       <NavbarContent
         className="ml-auto flex h-12 max-w-fit items-center gap-0 rounded-full p-0  lg:px-1 "
         justify="end"
       >
-        <NavbarItem className="hidden sm:flex">
+        <NavbarItem>
           <Button isIconOnly radius="full" variant="light">
             <Icon
               className="text-default-500"
@@ -78,7 +77,7 @@ const Navbar = () => {
         <NavbarItem>
           <ThemeSwitcher />
         </NavbarItem>
-        <NavbarItem className="hidden sm:flex">
+        {/* <NavbarItem className="hidden sm:flex">
           <Button isIconOnly radius="full" variant="light">
             <Icon
               className="text-default-500"
@@ -86,7 +85,7 @@ const Navbar = () => {
               width={24}
             />
           </Button>
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarItem className="px-2">
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
@@ -130,31 +129,13 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <NavbarMenuToggle className="h-6 sm:hidden" />
       <NavbarMenu>
-        <NavbarMenuItem>
-          <Link className="w-full" color="foreground" href="#">
-            Dashboard
-          </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem isActive>
-          <Link aria-current="page" className="w-full" color="primary" href="#">
-            Deployments
-          </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link className="w-full" color="foreground" href="#">
-            Analytics
-          </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link className="w-full" color="foreground" href="#">
-            Team
-          </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link className="w-full" color="foreground" href="#">
-            Settings
-          </Link>
-        </NavbarMenuItem>
+        {navigationLink.map((item) => (
+          <NavbarMenuItem key={item.route}>
+            <Link className="w-full" color="foreground" href={item.route}>
+              {item.label}
+            </Link>
+          </NavbarMenuItem>
+        ))}
       </NavbarMenu>
     </HeroUINavbar>
   );
